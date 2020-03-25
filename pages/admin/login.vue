@@ -91,7 +91,7 @@ export default {
 			this.$message.warning('Время жизни сессии истекло, авторизуйтесь')
 		}
 
-		console.log(process.env)
+		console.log(process.env.BASE_URL)
 	}
 
 }
