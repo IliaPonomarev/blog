@@ -90,6 +90,8 @@ export default {
 		if (message === 'session') {
 			this.$message.warning('Время жизни сессии истекло, авторизуйтесь')
 		}
+
+		console.log(process.env)
 	}
 
 }
