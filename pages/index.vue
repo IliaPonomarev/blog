@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import AppPost from '@/components/main/post'
+import AppPost from '@/components/main/Post'
 
 export default {
 	head: {
