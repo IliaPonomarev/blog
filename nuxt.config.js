@@ -44,7 +44,8 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
 	'@nuxtjs/axios',
-	'@nuxtjs/pwa',
+  '@nuxtjs/pwa',
+  '@nuxtjs/proxy'
   ],
   /*
   ** Axios module configuration
@@ -52,6 +53,15 @@ module.exports = {
   */
   axios: {
 	  baseURL: process.env.BASE_URL || 'http://localhost:3000'
+  },
+
+  proxy: {
+    '/api': {
+      target: process.env.BASE_URL,
+      pathRewrite: {
+        '^/api' : '/'
+        }
+      }
   },
 
   env: {
