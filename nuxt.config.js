@@ -38,6 +38,10 @@ module.exports = {
   */
   buildModules: [
   ],
+
+  serverMiddleware: ["redirect-ssl"],
+
+  
   /*
   ** Nuxt.js modules
   */
