@@ -8,9 +8,47 @@
 		>
 			<h2 class="mb">Создать новый пост</h2>
 
+			<el-collapse >
+				<el-collapse-item title="SEO" name="1">
+					<el-form-item label="Description" prop="seo">
+						<el-input 
+							v-model="controls.seo.description" 
+							type="textarea"
+							resize="none"
+							rows="3"
+						/>
+					</el-form-item>
+					<el-form-item label="Title" prop="seo">
+						<el-input 
+							v-model="controls.seo.title" 
+							type="textarea"
+							resize="none"
+							rows="3"
+						/>
+					</el-form-item>
+					<el-form-item label="Keywords" prop="seo">
+						<el-input 
+							v-model="controls.seo.keywords" 
+							type="textarea"
+							resize="none"
+							rows="3"
+						/>
+					</el-form-item>
+				</el-collapse-item>
+			</el-collapse>
+
 			<el-form-item label="Введите название поста" prop="title">
 				<el-input 
 					v-model="controls.title" 
+				/>
+			</el-form-item>
+
+			<el-form-item label="Описание поста" prop="description">
+				<el-input 
+					v-model="controls.description" 
+					type="textarea"
+					resize="none"
+					rows="4"
 				/>
 			</el-form-item>
 
@@ -74,7 +112,13 @@ export default {
 			loading: false,
 			controls: {
 				title: '',
-				text: ''
+				text: '',
+				description: '',
+				seo: {
+					description: '',
+					title: '',
+					keywords: ''
+				}
 			},
 			rules: {
 				title: [
@@ -82,6 +126,9 @@ export default {
 				],
 				text: [
 					{ required: true, message: 'Input text', trigger: 'blur' }
+				],
+				description: [
+					{ required: true, message: 'Input description', trigger: 'blur' }
 				]
 			}
 		}
@@ -95,16 +142,15 @@ export default {
 
 					const formData = {
 						title: this.controls.title,
+						description: this.controls.description,
 						text: this.controls.text,
-						image: this.image
-						// id: this.post._id
+						image: this.image,
+						seo: this.controls.seo
 					}
 
 					try {
 						await this.$store.dispatch('post/create', formData)
-						// this.controls.title = ''
-						// this.controls.text = ''
-						// this.image = null
+
 						this.$refs.upload.clearFiles()
 						this.$message.success('Пост добавлен')
 						this.loading = false
@@ -115,7 +161,7 @@ export default {
 				} else {
 					this.$message.warning('Форма не валидна')
 				}
-			});
+			});	
 		},
 
 		handlerImgChange(file, fileList) {

@@ -5,6 +5,10 @@ const postSchema = new Schema({
 		type: String,
 		required: true
 	},
+	description: {
+		type: String,
+		required: true
+	}, 
 	text: {
 		type: String,
 		required: true
@@ -23,7 +27,12 @@ const postSchema = new Schema({
 			type: Schema.Types.ObjectId,
 			ref: 'comments'
 		}
-	]
+	],
+	seo: {
+		title: String,
+		description: String,
+		keywords: String
+	}
 })
 
 module.exports = model('posts', postSchema)

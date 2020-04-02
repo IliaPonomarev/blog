@@ -44,12 +44,16 @@ export const actions = {
 		}
 	},
 	
-	async create({commit}, {title, text, image}) {
+	async create({commit}, {title, description, text, image, seo}) {
 		try {
 			const fd = new FormData()
 
 			fd.append('title', title)
+			fd.append('description', description)
 			fd.append('text', text)
+			fd.append('seoTitle', seo.title)
+			fd.append('seoDescription', seo.description)
+			fd.append('seoKeywords', seo.keywords)
 			fd.append('image', image, image.name)
 
 			return await this.$axios.$post('/api/post/admin', fd)

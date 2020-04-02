@@ -3,8 +3,14 @@ const Post = require('../models/post.model')
 module.exports.create = async (req, res) => {
 	const post = new Post({
 		title: req.body.title,
+		description: req.body.description,
 		text: req.body.text,
 		imageUrl: `/${req.file.filename}`,
+		seo: { 
+			description: req.body.seoDescription, 
+			title: req.body.seoTitle,
+			keywords: req.body.seoKeywords
+		}
 	})
 
 	try {
