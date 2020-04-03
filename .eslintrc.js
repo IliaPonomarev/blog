@@ -1,24 +1,22 @@
 module.exports = {
   root: true,
+  env: {
+    browser: true,
+    node: true
+  },
   parserOptions: {
     parser: 'babel-eslint',
     sourceType: 'module'
   },
-  env: {
-    browser: true,
-    jest: true
-  },
   extends: [
-    
-    // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-    // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-    'plugin:vue/recommended',
+    '@nuxtjs',
+    'prettier',
+    'prettier/vue',
     'plugin:prettier/recommended',
-    'standard'
+    'plugin:nuxt/recommended'
   ],
-  // required to lint *.vue files
   plugins: [
-    'vue'
+    'prettier'
   ],
   globals: {
     'ga': true, // Google Analytics
@@ -27,7 +25,7 @@ module.exports = {
     'env': true
   },
   // add your custom rules here
-  'rules': {
+  rules: {
     // allow async-await
     'generator-star-spacing': 'off',
 

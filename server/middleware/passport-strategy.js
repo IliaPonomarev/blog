@@ -1,4 +1,4 @@
-const {Strategy, ExtractJwt} = require('passport-jwt')
+const { Strategy, ExtractJwt } = require('passport-jwt')
 // const {model} = require('mongoose')
 const keys = require('../keys')
 // const User = model('users')
@@ -11,8 +11,8 @@ const options = {
 
 module.exports = new Strategy(options, async (payload, done) => {
   try {
-	const candidate = await User.findById(payload.userId).select('id')
-	// console.log(candidate)
+    const candidate = await User.findById(payload.userId).select('id')
+    // console.log(candidate)
 
     if (candidate) {
       done(null, candidate)

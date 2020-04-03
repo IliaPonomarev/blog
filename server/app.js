@@ -12,18 +12,18 @@ const commentRoutes = require('./routes/comment.routes')
 const app = express()
 const keys = require('./keys')
 
-
 // Подключение к бд
-mongoose.connect(keys.MONGO_URI, {useNewUrlParser: true})
-	.then(() => console.log('mongodb connected'))
-	.catch(error => console.error(error))
+mongoose
+  .connect(keys.MONGO_URI, { useNewUrlParser: true })
+  .then(() => console.log('mongodb connected'))
+  .catch((error) => console.error(error))
 
 // Защита роутов (некоторые страницы может видеть только админ)
 app.use(passport.initialize())
 passport.use(passportStrategy)
 
 // Добавление методов для работы с body
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // Роуты
