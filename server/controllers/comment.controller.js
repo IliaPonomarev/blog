@@ -20,21 +20,19 @@ module.exports.create = async (req, res) => {
 
 module.exports.like = async (req, res) => {
   try {
-    console.log(req.body.rating)
-    console.log(req.body.id)
-
     const $set = {
-      rating: ++req.body.rating
+      rating: req.body.rating + 1
     }
 
-    await Post.findOneAndUpdate(
+    const comment = await Comment.findOneAndUpdate(
       {
         _id: req.body.id
       },
-      { $set }
+      { $set },
+      { new: true }
     )
 
-    res.status(204).json()
+    res.status(200).json(comment)
   } catch (e) {
     res.status(500).json(e)
   }
@@ -42,18 +40,20 @@ module.exports.like = async (req, res) => {
 
 module.exports.dislike = async (req, res) => {
   try {
+    const rating = +req.body.rating
     const $set = {
-      rating: --req.body.rating
+      rating: rating - 1
     }
 
-    await Post.findOneAndUpdate(
+    const comment = await Comment.findOneAndUpdate(
       {
         _id: req.body.id
       },
-      { $set }
+      { $set },
+      { new: true }
     )
 
-    res.status(204).json()
+    res.status(200).json(comment)
   } catch (e) {
     res.status(500).json(e)
   }

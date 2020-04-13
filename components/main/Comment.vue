@@ -1,22 +1,28 @@
 <template>
   <el-card class="comment">
     <div class="comment__header">
-      <span class="name">{{ comment.name }}</span>
+      <span class="name">{{ updatedComment.name }}</span>
       <span>
         <i class="el-icon-time"></i>
-        {{ comment.date | date }}
+        {{ updatedComment.date | date }}
       </span>
     </div>
-    <div class="comment__text">{{ comment.text }}</div>
-    <div>{{ comment.rating }}</div>
-    <button @click="like">Like</button>
-    <button @click="dislike">Dislike</button>
+    <div class="comment__text">{{ updatedComment.text }}</div>
+    <div>{{ updatedComment.rating }}</div>
+    <button :disabled="loading" @click="like">Like</button>
+    <button :disabled="loading" @click="dislike">Dislike</button>
   </el-card>
 </template>
 
 <script>
 export default {
   props: ['comment'],
+  data() {
+    return {
+      updatedComment: this.comment,
+      loading: false
+    }
+  },
   mounted() {
     console.log(this.comment)
   },
@@ -25,10 +31,15 @@ export default {
       try {
         const formdata = {
           id: this.comment._id,
-          rating: this.comment.rating
+          rating: this.updatedComment.rating
         }
 
-        await this.$store.dispatch('comment/like', formdata)
+        this.loading = true
+        this.updatedComment = await this.$store.dispatch(
+          'comment/like',
+          formdata
+        )
+        this.loading = false
       } catch (e) {
         this.$message({
           message: e,
@@ -39,7 +50,17 @@ export default {
     async dislike() {
       console.log('dislike')
       try {
-        await this.$store.dispatch('comment/dislike')
+        const formdata = {
+          id: this.comment._id,
+          rating: this.updatedComment.rating
+        }
+
+        this.loading = true
+        this.updatedComment = await this.$store.dispatch(
+          'comment/dislike',
+          formdata
+        )
+        this.loading = false
       } catch (e) {
         this.$message({
           message: e,

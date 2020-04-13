@@ -34,6 +34,7 @@ module.exports.getById = async (req, res) => {
   try {
     await Post.findById(req.params.id)
       .populate('comments')
+      // eslint-disable-next-line handle-callback-err
       .exec((error, post) => {
         res.json(post)
       })

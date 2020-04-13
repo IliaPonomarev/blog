@@ -10,7 +10,6 @@ export const actions = {
   },
   async like({ commit }, formData) {
     try {
-      console.log('like')
       return await this.$axios.$post('/api/comment/like', formData)
     } catch (e) {
       commit('setError', e, { root: true })
