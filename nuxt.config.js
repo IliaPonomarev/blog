@@ -14,8 +14,17 @@ module.exports = {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=B612+Mono|Cabin:400,700&display=swap'
+      }
+    ]
   },
+
   /*
    ** Customize the progress-bar color
    */
@@ -24,10 +33,19 @@ module.exports = {
    ** Global CSS
    */
   css: ['element-ui/lib/theme-chalk/index.css', '@/theme/index.scss'],
+
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/globals', '@/plugins/axios'],
+  plugins: [
+    '@/plugins/globals',
+    '@/plugins/axios'
+    // '@/legacy/js/jquery.min.js',
+    // '@/legacy/js/browser.min.js',
+    // '@/legacy/js/breakpoints.min.js',
+    // '@/legacy/js/util.js',
+    // '@/legacy/js/main.js'
+  ],
   /*
    ** Nuxt.js dev-modules
    */
