@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <!-- <el-container>
     <el-header><app-navigation /></el-header>
     <el-main
       ref="scrollTarget"
@@ -10,24 +10,50 @@
         <nuxt />
         <el-backtop target=".page-component__scroll"></el-backtop>
       </div>
-      <!-- <div ref="scrollTarget" class="test-scroll"  style="height: 100px; overflow: auto">
-          <div style="height: 10000px; width: 100%">
-            <el-backtop target=".test-scroll">
-            </el-backtop>
-          </div>
-        </div> -->
+
     </el-main>
     <el-footer class="footer">Footer</el-footer>
-  </el-container>
+  </el-container> -->
+  <div class="body">
+    <!-- Google font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+
+    <AppHeader />
+
+    <nuxt />
+
+    <AppFooter />
+
+    <!-- jQuery Plugins -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+  </div>
 </template>
 
 <script>
-import AppNavigation from '@/components/main/Navigation.vue'
+// import AppNavigation from '@/components/main/Navigation.vue'
+import AppHeader from '@/components/main/Header.vue'
+import AppFooter from '@/components/main/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-    AppNavigation
+    // AppNavigation
+    AppHeader,
+    AppFooter
   }
 }
 </script>
