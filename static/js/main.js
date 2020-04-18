@@ -1,6 +1,6 @@
 ;(function($) {
   'use strict'
-
+  console.log('click')
   // Fixed Nav
   let lastScrollTop = 0
   $(window).on('scroll', function() {
