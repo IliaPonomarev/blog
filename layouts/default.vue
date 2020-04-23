@@ -26,16 +26,16 @@
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="/css/style.css" />
 
-    <!-- jQuery Plugins -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/main.js"></script>
-
     <AppHeader />
 
     <nuxt />
 
     <AppFooter />
+
+    <!-- jQuery Plugins -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
   </div>
 </template>
 
