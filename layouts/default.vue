@@ -16,10 +16,6 @@
   </el-container> -->
   <div class="body">
     <!-- Google font -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600"
-      rel="stylesheet"
-    />
 
     <!-- Bootstrap -->
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
