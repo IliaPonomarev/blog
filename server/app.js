@@ -12,8 +12,6 @@ const commentRoutes = require('./routes/comment.routes')
 const app = express()
 const keys = require('./keys')
 
-app.use(express.static('/js'))
-
 // Подключение к бд
 mongoose
   .connect(keys.MONGO_URI, { useNewUrlParser: true })
