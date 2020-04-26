@@ -1,7 +1,7 @@
 <template>
   <div class="aside-widget">
     <div class="section-title">
-      <h2>Featured Posts</h2>
+      <h2>Most commented</h2>
     </div>
     <div class="post post-thumb">
       <a class="post-img" href="blog-post.html"

@@ -1,13 +1,7 @@
 <template>
-  <!-- <el-row type="flex" justify="center">
-    <el-col :xs="24" :sm="18" :md="16" :lg="14">
-      <app-post v-for="post in posts" :key="post._id" :post="post"> </app-post>
-    </el-col>
-  </el-row> -->
-
   <div>
     <!-- section -->
-    <div class="section">
+    <section class="section">
       <!-- container -->
       <div class="container">
         <!-- row -->
@@ -62,7 +56,7 @@
         <AppRecentPost />
       </div>
       <!-- /container -->
-    </div>
+    </section>
     <!-- /section -->
 
     <AppFeaturedPost />

@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="section-title text-center">
-            <h2>Featured Posts</h2>
+            <h2>Most Commented</h2>
           </div>
         </div>
 

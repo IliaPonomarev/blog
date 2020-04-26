@@ -17,36 +17,9 @@
           </div>
           <!-- /logo -->
 
-          <!-- nav -->
-          <ul class="nav-menu nav navbar-nav">
-            <li><a href="category.html">News</a></li>
-            <li><a href="category.html">Popular</a></li>
-            <li class="cat-1"><a href="category.html">Web Design</a></li>
-            <li class="cat-2"><a href="category.html">JavaScript</a></li>
-            <li class="cat-3"><a href="category.html">Css</a></li>
-            <li class="cat-4"><a href="category.html">Jquery</a></li>
-          </ul>
-          <!-- /nav -->
+          <AppNavigation />
 
-          <!-- search & aside toggle -->
-          <div class="nav-btns">
-            <button class="aside-btn"><i class="fa fa-bars"></i></button>
-            <button class="search-btn" @click="showSearchForm">
-              <i class="fa fa-search"></i>
-            </button>
-            <div class="search-form" :class="{ active: isSearchFormShown }">
-              <input
-                class="search-input"
-                type="text"
-                name="search"
-                placeholder="Enter Your Search ..."
-              />
-              <button class="search-close" @click="hideSearchForm">
-                <i class="fa fa-times"></i>
-              </button>
-            </div>
-          </div>
-          <!-- /search & aside toggle -->
+          <AppSearch />
         </div>
       </div>
       <!-- /Main Nav -->
@@ -144,20 +117,20 @@
 </template>
 
 <script>
+import AppNavigation from '@/components/main/partials/Navigation'
+import AppSearch from '@/components/main/partials/Search'
+
 export default {
   name: 'Header',
+  components: {
+    AppNavigation,
+    AppSearch
+  },
   data: () => ({
-    isSearchFormShown: false,
     isAsideNavOpen: false
   }),
 
   methods: {
-    showSearchForm() {
-      this.isSearchFormShown = true
-    },
-    hideSearchForm() {
-      this.isSearchFormShown = false
-    },
     navClickHandler(event) {
       if (!event.target.closest('#nav-aside')) {
         if (this.isAsideNavOpen === true) {
