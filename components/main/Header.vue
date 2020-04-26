@@ -11,9 +11,9 @@
         <div class="container">
           <!-- logo -->
           <div class="nav-logo">
-            <a href="index.html" class="logo"
+            <nuxt-link to="/" class="logo"
               ><img src="/legacy/logo.png" alt=""
-            /></a>
+            /></nuxt-link>
           </div>
           <!-- /logo -->
 
