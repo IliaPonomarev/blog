@@ -27,15 +27,19 @@
           <!-- search & aside toggle -->
           <div class="nav-btns">
             <button class="aside-btn"><i class="fa fa-bars"></i></button>
-            <button class="search-btn"><i class="fa fa-search"></i></button>
-            <div class="search-form">
+            <button class="search-btn" @click="showSearchForm">
+              <i class="fa fa-search"></i>
+            </button>
+            <div class="search-form" :class="{ active: isSearchFormShown }">
               <input
                 class="search-input"
                 type="text"
                 name="search"
                 placeholder="Enter Your Search ..."
               />
-              <button class="search-close"><i class="fa fa-times"></i></button>
+              <button class="search-close" @click="hideSearchForm">
+                <i class="fa fa-times"></i>
+              </button>
             </div>
           </div>
           <!-- /search & aside toggle -->
@@ -132,3 +136,48 @@
     <!-- /Nav -->
   </header>
 </template>
+
+<script>
+export default {
+  name: 'Header',
+  data: () => ({
+    isSearchFormShown: false,
+    isAsideNavOpen: false
+  }),
+
+  methods: {
+    showSearchForm() {
+      this.isSearchFormShown = true
+    },
+    hideSearchForm() {
+      this.isSearchFormShown = false
+    },
+    openAsideNav() {
+      this.isAsideNavOpen = true
+    },
+    closeAsideNav() {
+      this.isAsideNavOpen = false
+    }
+  }
+
+  // // Aside Nav
+  // $('.body').click(function(event) {
+  //   // console.log($(event.target).closest('.aside-btn').length)
+  //   if (!$(event.target).closest($('#nav-aside')).length) {
+  //     console.log('click')
+  //     if ($('#nav-aside').hasClass('active')) {
+  //       $('#nav-aside').removeClass('active')
+  //       $('#nav').removeClass('shadow-active')
+  //     } else if ($(event.target).closest('.aside-btn').length) {
+  //       $('#nav-aside').addClass('active')
+  //       $('#nav').addClass('shadow-active')
+  //     }
+  //   }
+  // })
+
+  // $('.nav-aside-close').on('click', function() {
+  //   $('#nav-aside').removeClass('active')
+  //   $('#nav').removeClass('shadow-active')
+  // })
+}
+</script>
