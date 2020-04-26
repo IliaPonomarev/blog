@@ -1,7 +1,11 @@
 <template>
   <header id="header">
     <!-- Nav -->
-    <div id="nav">
+    <div
+      id="nav"
+      :class="{ 'shadow-active': isAsideNavOpen }"
+      @click="navClickHandler"
+    >
       <!-- Main Nav -->
       <div id="nav-fixed">
         <div class="container">
@@ -48,7 +52,7 @@
       <!-- /Main Nav -->
 
       <!-- Aside Nav -->
-      <div id="nav-aside">
+      <div id="nav-aside" :class="{ active: isAsideNavOpen }">
         <!-- nav -->
         <div class="section-row">
           <ul class="nav-aside-menu">
@@ -128,7 +132,9 @@
         <!-- /social links -->
 
         <!-- aside nav close -->
-        <button class="nav-aside-close"><i class="fa fa-times"></i></button>
+        <button class="nav-aside-close" @click="closeAsideNav">
+          <i class="fa fa-times"></i>
+        </button>
         <!-- /aside nav close -->
       </div>
       <!-- Aside Nav -->
@@ -152,6 +158,15 @@ export default {
     hideSearchForm() {
       this.isSearchFormShown = false
     },
+    navClickHandler(event) {
+      if (!event.target.closest('#nav-aside')) {
+        if (this.isAsideNavOpen === true) {
+          this.closeAsideNav()
+        } else if (event.target.closest('.aside-btn')) {
+          this.openAsideNav()
+        }
+      }
+    },
     openAsideNav() {
       this.isAsideNavOpen = true
     },
@@ -159,25 +174,5 @@ export default {
       this.isAsideNavOpen = false
     }
   }
-
-  // // Aside Nav
-  // $('.body').click(function(event) {
-  //   // console.log($(event.target).closest('.aside-btn').length)
-  //   if (!$(event.target).closest($('#nav-aside')).length) {
-  //     console.log('click')
-  //     if ($('#nav-aside').hasClass('active')) {
-  //       $('#nav-aside').removeClass('active')
-  //       $('#nav').removeClass('shadow-active')
-  //     } else if ($(event.target).closest('.aside-btn').length) {
-  //       $('#nav-aside').addClass('active')
-  //       $('#nav').addClass('shadow-active')
-  //     }
-  //   }
-  // })
-
-  // $('.nav-aside-close').on('click', function() {
-  //   $('#nav-aside').removeClass('active')
-  //   $('#nav').removeClass('shadow-active')
-  // })
 }
 </script>
