@@ -37,15 +37,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    '@/plugins/globals',
-    '@/plugins/axios'
-    // '@/legacy/js/jquery.min.js',
-    // '@/legacy/js/browser.min.js',
-    // '@/legacy/js/breakpoints.min.js',
-    // '@/legacy/js/util.js',
-    // '@/legacy/js/main.js'
-  ],
+  plugins: ['@/plugins/globals', '@/plugins/axios'],
   /*
    ** Nuxt.js dev-modules
    */

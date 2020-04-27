@@ -5,8 +5,7 @@
       <!-- container -->
       <div class="container">
         <!-- row -->
-        <div class="row">
-          <!-- post -->
+        <!-- <div class="row">
           <div class="col-md-6">
             <div class="post post-thumb">
               <a class="post-img" href="blog-post.html"
@@ -28,9 +27,7 @@
               </div>
             </div>
           </div>
-          <!-- /post -->
 
-          <!-- post -->
           <div class="col-md-6">
             <div class="post post-thumb">
               <a class="post-img" href="blog-post.html"
@@ -49,39 +46,33 @@
               </div>
             </div>
           </div>
-          <!-- /post -->
-        </div>
+        </div> -->
         <!-- /row -->
 
-        <AppRecentPost />
+        <AppRecentPost :posts="posts" />
       </div>
       <!-- /container -->
     </section>
     <!-- /section -->
-
-    <AppFeaturedPost />
-
-    <AppMostReadPost />
   </div>
 </template>
 
 <script>
 // import AppPost from '@/components/main/Post'
 import AppRecentPost from '@/components/main/post/Recent'
-import AppFeaturedPost from '@/components/main/post/Featured'
-import AppMostReadPost from '@/components/main/post/MostRead'
 
 export default {
   components: {
     // AppPost,
-    AppRecentPost,
-    AppFeaturedPost,
-    AppMostReadPost
+    AppRecentPost
   },
   async asyncData({ store }) {
     const posts = await store.dispatch('post/fetch')
 
     return { posts }
+  },
+  mounted() {
+    console.log(this.posts)
   },
   head() {
     return {
@@ -90,9 +81,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.post-list {
-  flex-wrap: wrap;
-}
-</style>
