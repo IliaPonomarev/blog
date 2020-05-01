@@ -51,7 +51,15 @@ router.get(
 
 router.get('/', ctr.getAll)
 
+router.get('/get/withoutmainpost', ctr.getWithoutMainPost)
+
 router.get('/:id', ctr.getById)
+
+router.get('/get/mainpost', ctr.getMainPost)
+
+router.put('/makemain/:id', ctr.makeMain)
+
+router.put('/unmakemain/:id', ctr.unMakeMain)
 
 router.put('/add/view/:id', ctr.addView)
 

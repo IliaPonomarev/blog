@@ -5,7 +5,7 @@ module.exports.create = async (req, res) => {
     title: req.body.title,
     description: req.body.description,
     text: req.body.text,
-    imageUrl: `/${req.file.filename}`,
+    imageUrl: `/images/${req.file.filename}`,
     seo: {
       description: req.body.seoDescription,
       title: req.body.seoTitle,
@@ -24,6 +24,17 @@ module.exports.create = async (req, res) => {
 module.exports.getAll = async (req, res) => {
   try {
     const posts = await Post.find().sort({ date: -1 })
+    res.json(posts)
+  } catch (e) {
+    res.status(500).json(e)
+  }
+}
+
+module.exports.getWithoutMainPost = async (req, res) => {
+  try {
+    const $query = { isMain: false }
+
+    const posts = await Post.find($query).sort({ date: -1 })
     res.json(posts)
   } catch (e) {
     res.status(500).json(e)
@@ -86,6 +97,58 @@ module.exports.addView = async (req, res) => {
     )
 
     res.status(204).json()
+  } catch (e) {
+    res.status(500).json(e)
+  }
+}
+
+module.exports.makeMain = async (req, res) => {
+  try {
+    const $set = {
+      isMain: true
+    }
+
+    await Post.findOneAndUpdate(
+      {
+        _id: req.params.id
+      },
+      { $set }
+    )
+
+    res.status(204).json()
+  } catch (e) {
+    res.status(500).json(e)
+  }
+}
+
+module.exports.unMakeMain = async (req, res) => {
+  try {
+    const $set = {
+      isMain: false
+    }
+
+    await Post.findOneAndUpdate(
+      {
+        _id: req.params.id
+      },
+      { $set }
+    )
+
+    res.status(204).json()
+  } catch (e) {
+    res.status(500).json(e)
+  }
+}
+
+module.exports.getMainPost = async (req, res) => {
+  try {
+    const $query = { isMain: true }
+
+    const post = await Post.findOne($query)
+
+    console.log(post)
+
+    res.status(200).json(post)
   } catch (e) {
     res.status(500).json(e)
   }

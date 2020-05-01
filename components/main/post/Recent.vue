@@ -88,10 +88,20 @@ export default {
     AppFeaturedPostWidget
   },
   props: {
-    posts: Array
+    posts: {
+      type: Array,
+      required: false,
+      default: () => []
+    },
+    mainPost: {
+      type: Object,
+      required: false,
+      default: () => []
+    }
   },
   mounted() {
     console.log(this.posts)
+    console.log(this.mainPost)
   }
 }
 </script>

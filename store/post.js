@@ -21,6 +21,15 @@ export const actions = {
     }
   },
 
+  async fetchPostsWithoutMainPost({ commit }) {
+    try {
+      return await this.$axios.$get('/api/post/get/withoutmainpost')
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
+  },
+
   async remove({ commit }, id) {
     try {
       return await this.$axios.$delete(`/api/post/admin/${id}`)
@@ -70,6 +79,33 @@ export const actions = {
   async fetchById({ commit }, id) {
     try {
       return await this.$axios.$get(`/api/post/${id}`)
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
+  },
+
+  async fetchMainPost({ commit }) {
+    try {
+      return await this.$axios.$get(`/api/post/get/mainpost`)
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
+  },
+
+  async makeMain({ commit }, id) {
+    try {
+      return await this.$axios.$put(`/api/post/makemain/${id}`)
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
+  },
+
+  async unMakeMain({ commit }, id) {
+    try {
+      return await this.$axios.$put(`/api/post/unmakemain/${id}`)
     } catch (e) {
       commit('setError', e, { root: true })
       throw e

@@ -31,6 +31,10 @@ const postSchema = new Schema({
     title: String,
     description: String,
     keywords: String
+  },
+  isMain: {
+    type: Boolean,
+    default: false
   }
 })
 
