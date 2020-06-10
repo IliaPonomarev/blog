@@ -132,9 +132,9 @@
 
             <AppPostAuthor />
 
-            <AppComment />
+            <!-- <AppComment />
 
-            <AppCommentForm />
+            <AppCommentForm /> -->
           </div>
           <!-- /Post content -->
 
@@ -150,7 +150,7 @@
 
             <AppMostReadPostWidget />
 
-            <AppFeaturedPostWidget />
+            <!-- <AppFeaturedPostWidget /> -->
 
             <AppCategoriesWidget />
 
@@ -167,23 +167,23 @@
 
 <script>
 import AppMostReadPostWidget from '@/components/main/post/MostReadWidget'
-import AppFeaturedPostWidget from '@/components/main/post/FeaturedWidget'
+// import AppFeaturedPostWidget from '@/components/main/post/FeaturedWidget'
 import AppCategoriesWidget from '@/components/main/post/CategoriesWidget'
 import AppArchivePostWidget from '@/components/main/post/ArchiveWidget'
 import AppPostAuthor from '@/components/main/post/Author'
-import AppCommentForm from '@/components/main/comment/Form'
-import AppComment from '@/components/main/comment/index'
+// import AppCommentForm from '@/components/main/comment/Form'
+// import AppComment from '@/components/main/comment/index'
 
 import AppPostShares from '@/components/main/partials/PostShares'
 
 export default {
   components: {
     AppMostReadPostWidget,
-    AppFeaturedPostWidget,
+    // AppFeaturedPostWidget,
     AppCategoriesWidget,
     AppArchivePostWidget,
-    AppCommentForm,
-    AppComment,
+    // AppCommentForm,
+    // AppComment,
     AppPostAuthor,
     AppPostShares
   }

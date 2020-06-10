@@ -57,6 +57,8 @@ router.get('/:id', ctr.getById)
 
 router.get('/get/mainpost', ctr.getMainPost)
 
+router.get('/get/getmostreadposts', ctr.getMostReadPosts)
+
 router.put('/makemain/:id', ctr.makeMain)
 
 router.put('/unmakemain/:id', ctr.unMakeMain)

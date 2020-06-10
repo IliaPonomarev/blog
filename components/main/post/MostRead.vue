@@ -11,121 +11,40 @@
                 <h2>Most Read</h2>
               </div>
             </div>
-            <!-- post -->
-            <div class="col-md-12">
-              <div class="post post-row">
-                <a class="post-img" href="blog-post.html"
-                  ><img src="/legacy/post-4.jpg" alt=""
-                /></a>
-                <div class="post-body">
-                  <div class="post-meta">
-                    <a class="post-category cat-2" href="category.html"
-                      >JavaScript</a
-                    >
-                    <span class="post-date">March 27, 2018</span>
+            <div v-for="(post, id) in mostReadPosts" :key="id" class="posts">
+              <div class="col-md-12">
+                <div class="post post-row">
+                  <nuxt-link class="post-img" :to="'/post/' + post._id">
+                    <img :src="post.imageUrl" alt="" />
+                  </nuxt-link>
+                  <div class="post-body">
+                    <div class="post-meta">
+                      <a class="post-category cat-2" href="category.html"
+                        >JavaScript</a
+                      >
+                      <span class="post-date">{{ post.date | date() }}</span>
+                    </div>
+                    <h3 class="post-title">
+                      <nuxt-link :to="'/post/' + post._id">
+                        {{ post.title }}
+                      </nuxt-link>
+                    </h3>
+                    <p>
+                      {{ post.description }}
+                    </p>
                   </div>
-                  <h3 class="post-title">
-                    <a href="blog-post.html"
-                      >Chrome Extension Protects Against JavaScript-Based CPU
-                      Side-Channel Attacks</a
-                    >
-                  </h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam...
-                  </p>
                 </div>
               </div>
             </div>
-            <!-- /post -->
-
             <!-- post -->
-            <div class="col-md-12">
-              <div class="post post-row">
-                <a class="post-img" href="blog-post.html"
-                  ><img src="/legacy/post-6.jpg" alt=""
-                /></a>
-                <div class="post-body">
-                  <div class="post-meta">
-                    <a class="post-category cat-2" href="category.html"
-                      >JavaScript</a
-                    >
-                    <span class="post-date">March 27, 2018</span>
-                  </div>
-                  <h3 class="post-title">
-                    <a href="blog-post.html"
-                      >Why Node.js Is The Coolest Kid On The Backend Development
-                      Block!</a
-                    >
-                  </h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam...
-                  </p>
-                </div>
-              </div>
-            </div>
+
             <!-- /post -->
 
-            <!-- post -->
-            <div class="col-md-12">
-              <div class="post post-row">
-                <a class="post-img" href="blog-post.html"
-                  ><img src="/legacy/post-1.jpg" alt=""
-                /></a>
-                <div class="post-body">
-                  <div class="post-meta">
-                    <a class="post-category cat-4" href="category.html">Css</a>
-                    <span class="post-date">March 27, 2018</span>
-                  </div>
-                  <h3 class="post-title">
-                    <a href="blog-post.html">CSS Float: A Tutorial</a>
-                  </h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam...
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- /post -->
-
-            <!-- post -->
-            <div class="col-md-12">
-              <div class="post post-row">
-                <a class="post-img" href="blog-post.html"
-                  ><img src="/legacy/post-2.jpg" alt=""
-                /></a>
-                <div class="post-body">
-                  <div class="post-meta">
-                    <a class="post-category cat-3" href="category.html"
-                      >Jquery</a
-                    >
-                    <span class="post-date">March 27, 2018</span>
-                  </div>
-                  <h3 class="post-title">
-                    <a href="blog-post.html"
-                      >Ask HN: Does Anybody Still Use JQuery?</a
-                    >
-                  </h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam...
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!-- /post -->
-
-            <div class="col-md-12">
+            <!-- <div class="col-md-12">
               <div class="section-row">
                 <button class="primary-button center-block">Load More</button>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -153,6 +72,16 @@ import AppCategoriesWidget from '@/components/main/post/CategoriesWidget'
 export default {
   components: {
     AppCategoriesWidget
+  },
+  props: {
+    mostReadPosts: {
+      type: Array,
+      required: false,
+      default: () => []
+    }
+  },
+  mounted() {
+    console.log(this.mostReadPosts)
   }
 }
 </script>

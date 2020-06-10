@@ -38,10 +38,8 @@
               <div class="footer-widget">
                 <h3 class="footer-title">Categories</h3>
                 <ul class="footer-links">
-                  <li><a href="category.html">Web Design</a></li>
-                  <li><a href="category.html">JavaScript</a></li>
-                  <li><a href="category.html">Css</a></li>
-                  <li><a href="category.html">Jquery</a></li>
+                  <li><nuxt-link to="/">Home</nuxt-link></li>
+                  <li><nuxt-link to="/popular">Popular</nuxt-link></li>
                 </ul>
               </div>
             </div>

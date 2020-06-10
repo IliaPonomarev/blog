@@ -146,9 +146,19 @@ module.exports.getMainPost = async (req, res) => {
 
     const post = await Post.findOne($query)
 
-    console.log(post)
-
     res.status(200).json(post)
+  } catch (e) {
+    res.status(500).json(e)
+  }
+}
+
+module.exports.getMostReadPosts = async (req, res) => {
+  try {
+    const $query = { isMain: false }
+
+    const posts = await Post.find({ $query }).sort([['views', -1]])
+
+    res.status(200).json(posts)
   } catch (e) {
     res.status(500).json(e)
   }

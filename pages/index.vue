@@ -2,7 +2,11 @@
   <div>
     <section class="section">
       <div class="container">
-        <AppRecentPost :posts="posts" :main-post="mainPost" />
+        <AppRecentPost
+          :posts="posts"
+          :main-post="mainPost"
+          :most-read-posts="mostReadPosts"
+        />
       </div>
     </section>
   </div>
@@ -19,9 +23,10 @@ export default {
   },
   async asyncData({ store }) {
     const posts = await store.dispatch('post/fetchPostsWithoutMainPost')
+    const mostReadPosts = await store.dispatch('post/fetchMostReadPosts')
     const mainPost = await store.dispatch('post/fetchMainPost')
 
-    return { posts, mainPost }
+    return { posts, mainPost, mostReadPosts }
   },
   head() {
     return {

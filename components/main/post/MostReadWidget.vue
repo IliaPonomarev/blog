@@ -4,57 +4,31 @@
       <h2>Most Read</h2>
     </div>
 
-    <div class="post post-widget">
-      <a class="post-img" href="blog-post.html"
-        ><img src="/legacy/widget-1.jpg" alt=""
-      /></a>
-      <div class="post-body">
-        <h3 class="post-title">
-          <a href="blog-post.html"
-            >Tell-A-Tool: Guide To Web Design And Development Tools</a
-          >
-        </h3>
-      </div>
-    </div>
-
-    <div class="post post-widget">
-      <a class="post-img" href="blog-post.html"
-        ><img src="/legacy/widget-2.jpg" alt=""
-      /></a>
-      <div class="post-body">
-        <h3 class="post-title">
-          <a href="blog-post.html"
-            >Pagedraw UI Builder Turns Your Website Design Mockup Into Code
-            Automatically</a
-          >
-        </h3>
-      </div>
-    </div>
-
-    <div class="post post-widget">
-      <a class="post-img" href="blog-post.html"
-        ><img src="/legacy/widget-3.jpg" alt=""
-      /></a>
-      <div class="post-body">
-        <h3 class="post-title">
-          <a href="blog-post.html"
-            >Why Node.js Is The Coolest Kid On The Backend Development Block!</a
-          >
-        </h3>
-      </div>
-    </div>
-
-    <div class="post post-widget">
-      <a class="post-img" href="blog-post.html"
-        ><img src="/legacy/widget-4.jpg" alt=""
-      /></a>
-      <div class="post-body">
-        <h3 class="post-title">
-          <a href="blog-post.html"
-            >Tell-A-Tool: Guide To Web Design And Development Tools</a
-          >
-        </h3>
+    <div v-for="(post, id) in mostReadPosts" :key="id" class="posts">
+      <div class="post post-widget">
+        <nuxt-link class="post-img" :to="'/post/' + post._id">
+          <img :src="post.imageUrl" alt="" />
+        </nuxt-link>
+        <div class="post-body">
+          <h3 class="post-title">
+            <nuxt-link :to="'/post/' + post._id">
+              {{ post.title }}
+            </nuxt-link>
+          </h3>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    mostReadPosts: {
+      type: Array,
+      required: false,
+      default: () => []
+    }
+  }
+}
+</script>

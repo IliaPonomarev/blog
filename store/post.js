@@ -94,6 +94,15 @@ export const actions = {
     }
   },
 
+  async fetchMostReadPosts({ commit }) {
+    try {
+      return await this.$axios.$get(`/api/post/get/getmostreadposts`)
+    } catch (e) {
+      commit('setError', e, { root: true })
+      throw e
+    }
+  },
+
   async makeMain({ commit }, id) {
     try {
       return await this.$axios.$put(`/api/post/makemain/${id}`)
