@@ -8,16 +8,7 @@
         <div class="col-md-5">
           <div class="footer-widget">
             <div class="footer-logo">
-              <a href="index.html" class="logo"
-                ><img src="/legacy/logo.png" alt=""
-              /></a>
-            </div>
-            <ul class="footer-nav">
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Advertisement</a></li>
-            </ul>
-            <div class="footer-copyright">
-              <span>&copy; Copyright </span>
+              <nuxt-link to="/"><img src="/legacy/logo.svg" alt=""/></nuxt-link>
             </div>
           </div>
         </div>

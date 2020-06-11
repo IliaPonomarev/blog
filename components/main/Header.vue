@@ -12,7 +12,7 @@
           <!-- logo -->
           <div class="nav-logo">
             <nuxt-link to="/" class="logo"
-              ><img src="/legacy/logo.png" alt=""
+              ><img src="/legacy/logo.svg" alt=""
             /></nuxt-link>
           </div>
           <!-- /logo -->

@@ -1,9 +1,23 @@
 <template>
   <div class="admin-layout">
     <el-container :style="{ height: '100%' }">
-      <el-aside width="250px">
+      <!-- <el-aside width="250px">
         <app-aside />
-      </el-aside>
+      </el-aside> -->
+      <el-button
+        type="primary"
+        style="margin-left: 0px;"
+        @click="drawer = true"
+      >
+        open
+      </el-button>
+      <el-drawer
+        title="I am the title"
+        :visible.sync="drawer"
+        :with-header="false"
+      >
+        <app-aside />
+      </el-drawer>
       <el-main>
         <nuxt />
       </el-main>
@@ -17,6 +31,11 @@ import AppAside from '@/components/admin/Aside'
 export default {
   components: {
     AppAside
+  },
+  data() {
+    return {
+      drawer: false
+    }
   },
   computed: {
     error() {
