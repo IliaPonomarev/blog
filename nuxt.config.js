@@ -32,12 +32,20 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: ['element-ui/lib/theme-chalk/index.css', '@/theme/index.scss'],
+  css: [
+    'element-ui/lib/theme-chalk/index.css',
+    '@/theme/index.scss',
+    'medium-editor/dist/css/medium-editor.css'
+  ],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/globals', '@/plugins/axios'],
+  plugins: [
+    { src: '~/plugins/editor', ssr: false },
+    '@/plugins/globals',
+    '@/plugins/axios'
+  ],
   /*
    ** Nuxt.js dev-modules
    */

@@ -1,9 +1,6 @@
 <template>
   <div class="admin-layout">
     <el-container :style="{ height: '100%' }">
-      <!-- <el-aside width="250px">
-        <app-aside />
-      </el-aside> -->
       <el-button
         type="primary"
         style="margin-left: 0px;"
@@ -44,6 +41,7 @@ export default {
   },
   watch: {
     error(value) {
+      console.log(value)
       this.$message.error(value.response.data.message)
     }
   }
