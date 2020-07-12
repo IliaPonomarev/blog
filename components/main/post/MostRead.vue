@@ -56,7 +56,11 @@
             </a>
           </div>
           <!-- /ad -->
+          <!-- Lorem ipsum dolor, sit amet consectetur adipisicing elit. -->
 
+          <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus corrupti dolores debitis. -->
+
+          <!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error fugit officiis doloribus obcaecati voluptatibus molestiae maiores illo dicta, veritatis natus dolorum necessitatibus cumque nam voluptate ullam! Error at deserunt ratione quaerat sit deleniti et commodi quidem accusamus itaque magni quas consequuntur sequi asperiores ipsam hic voluptas, iste placeat cumque tempora. -->
           <!-- <AppCategoriesWidget /> -->
         </div>
       </div>
