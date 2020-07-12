@@ -18,7 +18,7 @@
               /></nuxt-link>
               <div class="post-body">
                 <div class="post-meta">
-                  <a class="post-category cat-3" href="category.html">Jquery</a>
+                  <!-- <a class="post-category cat-3" href="category.html">Jquery</a> -->
                   <span class="post-date">{{ mainPost.date | date() }}</span>
                 </div>
                 <h3 class="post-title">
@@ -45,7 +45,7 @@
                 </nuxt-link>
                 <div class="post-body">
                   <div class="post-meta">
-                    <a class="post-category cat-4" href="category.html">Css</a>
+                    <!-- <a class="post-category cat-4" href="category.html">Css</a> -->
                     <span class="post-date">{{ post.date | date() }}</span>
                   </div>
                   <h3 class="post-title">

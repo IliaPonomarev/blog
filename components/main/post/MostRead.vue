@@ -19,9 +19,9 @@
                   </nuxt-link>
                   <div class="post-body">
                     <div class="post-meta">
-                      <a class="post-category cat-2" href="category.html"
+                      <!-- <a class="post-category cat-2" href="category.html"
                         >JavaScript</a
-                      >
+                      > -->
                       <span class="post-date">{{ post.date | date() }}</span>
                     </div>
                     <h3 class="post-title">
@@ -57,7 +57,7 @@
           </div>
           <!-- /ad -->
 
-          <AppCategoriesWidget />
+          <!-- <AppCategoriesWidget /> -->
         </div>
       </div>
       <!-- /row -->
@@ -67,11 +67,11 @@
 </template>
 
 <script>
-import AppCategoriesWidget from '@/components/main/post/CategoriesWidget'
+// import AppCategoriesWidget from '@/components/main/post/CategoriesWidget'
 
 export default {
   components: {
-    AppCategoriesWidget
+    // AppCategoriesWidget
   },
   props: {
     mostReadPosts: {
