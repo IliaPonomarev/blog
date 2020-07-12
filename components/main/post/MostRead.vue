@@ -79,9 +79,6 @@ export default {
       required: false,
       default: () => []
     }
-  },
-  mounted() {
-    console.log(this.mostReadPosts)
   }
 }
 </script>

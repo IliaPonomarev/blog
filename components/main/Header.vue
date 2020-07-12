@@ -36,7 +36,7 @@
         <!-- /nav -->
 
         <!-- widget posts -->
-        <div class="section-row">
+        <!-- <div class="section-row">
           <h3>Recent Posts</h3>
           <div class="post post-widget">
             <a class="post-img" href="blog-post.html"
@@ -78,7 +78,7 @@
               </h3>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- /widget posts -->
 
         <!-- social links -->
