@@ -22,7 +22,9 @@
                   <span class="post-date">{{ mainPost.date | date() }}</span>
                 </div>
                 <h3 class="post-title">
-                  <a href="blog-post.html">{{ mainPost.title }}</a>
+                  <nuxt-link :to="'/post/' + mainPost._id">{{
+                    mainPost.title
+                  }}</nuxt-link>
                 </h3>
               </div>
             </div>
