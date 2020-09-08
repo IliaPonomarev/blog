@@ -50,27 +50,7 @@
         />
       </el-form-item>
 
-      <el-form-item label="Текст в формате .md или .html" prop="text">
-        <el-input
-          v-model="controls.text"
-          type="textarea"
-          resize="none"
-          rows="10"
-        />
-      </el-form-item>
-
-      <el-button type="success" plain class="mb" @click="previewDialog = true">
-        Предпросмотр
-      </el-button>
-
-      <el-dialog title="Предпросмотр" :visible.sync="previewDialog">
-        <div :key="controls.text">
-          <vue-markdown>
-            {{ controls.text }}
-          </vue-markdown>
-        </div>
-      </el-dialog>
-
+      Превью
       <el-upload
         ref="upload"
         class="mb"
@@ -87,6 +67,15 @@
           jpg/png files with a size less than 500kb
         </div>
       </el-upload>
+
+      <no-ssr>
+        <medium-editor
+          :text="text"
+          :options="options"
+          custom-tag="h2"
+          @edit="applyTextEdit"
+        />
+      </no-ssr>
 
       <el-form-item>
         <el-button type="primary" native-type="submit" :loading="loading">
@@ -109,7 +98,6 @@ export default {
       loading: false,
       controls: {
         title: '',
-        text: '',
         description: '',
         seo: {
           description: '',
@@ -117,12 +105,30 @@ export default {
           keywords: ''
         }
       },
+      text: '',
       rules: {
         title: [{ required: true, message: 'Input title', trigger: 'blur' }],
-        text: [{ required: true, message: 'Input text', trigger: 'blur' }],
         description: [
           { required: true, message: 'Input description', trigger: 'blur' }
         ]
+      },
+      options: {
+        toolbar: {
+          buttons: [
+            'bold',
+            'strikethrough',
+            'h1',
+            'h2',
+            'h3',
+            'italic',
+            'justifyLeft',
+            'justifyCenter',
+            'justifyRight',
+            'justifyFull',
+            'quote',
+            'anchor'
+          ]
+        }
       }
     }
   },
@@ -136,7 +142,7 @@ export default {
           const formData = {
             title: this.controls.title,
             description: this.controls.description,
-            text: this.controls.text,
+            text: this.text,
             image: this.image,
             seo: this.controls.seo
           }
@@ -154,6 +160,10 @@ export default {
           this.$message.warning('Форма не валидна')
         }
       })
+    },
+
+    applyTextEdit(operation) {
+      this.text = operation.api.origElements.innerHTML
     },
 
     handlerImgChange(file, fileList) {
