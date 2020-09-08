@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class="post">
     <section class="section">
       <!-- container -->
       <div class="container">
@@ -17,7 +17,7 @@
                     So Lorem Ipsum is bad (not necessarily)
                   </figcaption>
                 </figure>
-                {{ post.text }}
+                <div v-html="post.text"></div>
               </div>
               <AppPostShares />
             </div>
@@ -107,3 +107,11 @@ export default {
   }
 }
 </script>
+
+
+<style lang="scss" scoped>
+.post img{
+  max-width: 100%;
+  width: 100%;
+}
+</style>
