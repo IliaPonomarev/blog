@@ -93,3 +93,4 @@ sw.*
 sw.*
 
 server/keys/keys.dev.js
+.secrets

@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const passport = require('passport')
+const cors = require('cors')
 
 const passportStrategy = require('./middleware/passport-strategy')
 
@@ -25,6 +26,8 @@ passport.use(passportStrategy)
 // Добавление методов для работы с body
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
+app.use(cors())
 
 // Роуты
 app.use('/api/auth', authRoutes)
