@@ -1,3 +1,4 @@
+require('dotenv').config()
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const config = require('../nuxt.config.js')

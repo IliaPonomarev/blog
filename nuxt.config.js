@@ -65,12 +65,12 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000'
+    baseURL: process.env.BASE_URL || 'http://localhost:5353'
   },
 
   proxy: {
     '/api': {
-      target: process.env.BASE_URL || 'http://localhost:3000',
+      target: process.env.BASE_URL || 'http://localhost:5353',
       pathRewrite: {
         '^/api': '/'
       }
@@ -92,7 +92,7 @@ module.exports = {
     extend(config, ctx) {}
   },
   server: {
-    port: 3000, // default: 3000
+    port: 5353, // default: 3000
     host: '0.0.0.0' // default: localhost
   }
 }

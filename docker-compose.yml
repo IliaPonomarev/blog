@@ -4,12 +4,13 @@ services:
   # Первый сервис, nginx
   nginx:
     image: nginx:latest
+    restart: unless-stopped
     # Пробрасываем порты 80 для http и 443 для https
     ports:
       - "89:80"
       - "449:443"
     # Опциональный параметр с именем контейнера
-    container_name: proxy_nginx
+    container_name: wegeograph_proxy
     volumes:
       # Используем свой nginx конфиг, он заменит дефолтный в контейнере
       - ./nginx:/etc/nginx/conf.d
@@ -19,18 +20,10 @@ services:
       - ./static:/var/www/static
   # Второй сервис Nuxt.js приложение
   nuxt:
-    container_name: nuxt_app
+    container_name: wegeograph
+    restart: unless-stopped
     # Также пробрасываем порт на котором висит приложение
     ports:
-      - "3000:3000"
+      - "5353:5353"
     build: .
-    secrets:
-      - mongo-uri
-      - jwt
-
-secrets:
-  mongo-uri:
-    file: ./.secrets/mongo-uri
-  jwt:
-    file: ./.secrets/jwt
   
